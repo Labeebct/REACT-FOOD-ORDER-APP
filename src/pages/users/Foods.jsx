@@ -1,8 +1,9 @@
 import React from 'react'
+import FoodsArea from '../../components/users/FoodsArea'
 
 function Foods() {
   return (
-    <div>Foods</div>
+    <FoodsArea />
   )
 }
 

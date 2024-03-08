@@ -1,8 +1,11 @@
 import React from 'react'
+import LoginTopbar from '../../components/users/LoginTopbar'
 
 function Signup() {
   return (
-    <div>Signup</div>
+    <>
+      <LoginTopbar />
+    </>
   )
 }
 

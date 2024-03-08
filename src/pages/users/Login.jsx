@@ -1,10 +1,11 @@
 import React from 'react'
+import LoginTopbar from '../../components/users/LoginTopbar'
 
 function Login() {
   return (
-    <div>
-      Login
-    </div>
+    <>
+     <LoginTopbar />
+    </>
   )
 }
 

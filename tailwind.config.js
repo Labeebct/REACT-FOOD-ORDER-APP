@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         cagliostro: ['Cagliostro', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
         poiretOne: ['Poiret One', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif']
