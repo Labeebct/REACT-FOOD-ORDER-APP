@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import LunchDiningIcon from '@mui/icons-material/LunchDining';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 function TopBar() {
+
+  const [ navOn , changeNav ] = useState(false)
+
+
   return ( 
     <nav className='flex z-10 sticky top-0 right-0 left-0 text-white justify-between px-7 items-center w-full h-[4.5rem] bg-black border-b border-gray-100 border-opacity-10'>
         <div className='text-[1.26rem] sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro'>LABIOO</div>
@@ -12,14 +20,21 @@ function TopBar() {
           <input type="text" placeholder='Search' spellCheck={false} className='bg-transparent h-full pl-4 w-[90%] outline-none text-black text-[.9rem]' />
           <div className='w-10 cursor-pointer bg-gray-300 flex items-center justify-center'><SearchIcon style={{color:'black'}} /></div>
         </div>
-        <section className='flex md:hidden'><MenuIcon sx={{ fontSize: 27 }} className='cursor-pointer' /></section>
+        <section className='flex md:hidden'>{ navOn ? <CloseIcon onClick={()=>changeNav(false)} sx={{ fontSize: 27 }} className='cursor-pointer'/> : < MenuIcon sx={{ fontSize: 27 }} className='cursor-pointer' onClick={()=>changeNav(true)}/> }</section>
         <ul className='hidden md:flex'>
           <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/home'>Home</Link></li>
           <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/foods'>Foods</Link></li>
           <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/orders'>Orders</Link></li>
           <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/login'><LogoutIcon sx={{ fontSize: 16 }} /></Link></li>
         </ul>
+        <ul className={`mt-[4.5rem] w-[17.5rem] border-r border-slate-200 border-opacity-20 bg-[#000000] h-screen flex flex-col ${ navOn ? 'left-0' : 'left-[-17.5rem]'}  md:hidden absolute bottom-0 top-0 ease-linear duration-300`}>
+         <Link to='/home'><li className='px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer'><HomeIcon />Home</li></Link>
+         <Link to='/foods'><li className='px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer'><LunchDiningIcon />Foods</li></Link>
+         <Link to='/orders'><li className='px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer'><LocalShippingIcon />Orders</li></Link>
+         <Link to='/login'><li className='px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer'><LogoutIcon />Logout</li></Link>
+        </ul>
     </nav>
+    
   )
 }
 
