@@ -6,6 +6,7 @@ import Home from './pages/users/Home'
 import Foodopen from './pages/users/FoodOpen'
 import Foods from './pages/users/Foods'
 import Orders from './pages/users/Orders'
+import Checkout from './pages/users/Checkout';
 import Login from './pages/users/Login';
 import Signup from './pages/users/Signup';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/foods' element={<Foods />} />
           <Route path='/view-food' element={<Foodopen />} />
           <Route path='/orders' element={<Orders />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Route>
       </Routes>
     </BrowserRouter>

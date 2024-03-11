@@ -1,8 +1,9 @@
 import React from 'react'
+import CheckoutContent from '../../components/users/CheckoutContent'
 
 function Checkout() {
   return (
-    <div>Checkout</div>
+    <CheckoutContent />
   )
 }
 

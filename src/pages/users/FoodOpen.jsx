@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import FoodOpenContent from "../../components/users/FoodOpenContent";
 
 function FoodOpen() {
   return (
-    <div>FoodOpen</div>
-  )
+   <FoodOpenContent />
+  );
 }
 
-export default FoodOpen
+export default FoodOpen;

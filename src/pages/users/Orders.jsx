@@ -1,8 +1,9 @@
 import React from 'react'
+import OrderContent from '../../components/users/OrderContent'
 
 function Orders() {
   return (
-    <div>Orders</div>
+    <OrderContent />
   )
 }
 

@@ -8,9 +8,9 @@ function LoginTopbar() {
     <div className='text-[1.26rem] sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro'>LABIOO</div>
     <section className='flex md:hidden'><MenuIcon sx={{ fontSize: 27 }} className='cursor-pointer' /></section>
     <ul className='hidden md:flex'>
-      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/home'>Home</Link></li>
-      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/foods'>Foods</Link></li>
-      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/orders'>Orders</Link></li>
+      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/login'>Home</Link></li>
+      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/login'>Foods</Link></li>
+      <li className='px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer'><Link to='/login'>Orders</Link></li>
     </ul>
 </nav>
   )
