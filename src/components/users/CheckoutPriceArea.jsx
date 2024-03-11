@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function CheckoutPriceArea() {
   return (
     <div className="flex flex-col gap-7 px-2 py-4 w-full h-full">

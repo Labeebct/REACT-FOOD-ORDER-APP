@@ -1,16 +1,16 @@
 import React from "react";
 import LoginTopbar from "../../components/users/LoginTopbar";
 import Footer from "../../components/users/Footer";
-import SignupContent from "../../components/users/SignupContent";
+import ForgetPassContent from "../../components/users/ForgetPassContent";
 
-function Signup() {
+function ForgetPassword() {
   return (
     <>
       <LoginTopbar />
-      <SignupContent />
+      <ForgetPassContent />
       <Footer />
     </>
   );
 }
 
-export default Signup;
+export default ForgetPassword;

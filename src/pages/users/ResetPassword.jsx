@@ -1,16 +1,17 @@
 import React from "react";
 import LoginTopbar from "../../components/users/LoginTopbar";
 import Footer from "../../components/users/Footer";
-import SignupContent from "../../components/users/SignupContent";
+import PasswordResetContent from "../../components/users/PasswordResetContent";
 
-function Signup() {
+
+function PasswordReset() {
   return (
     <>
       <LoginTopbar />
-      <SignupContent />
+      <PasswordResetContent />
       <Footer />
     </>
   );
 }
 
-export default Signup;
+export default PasswordReset;
