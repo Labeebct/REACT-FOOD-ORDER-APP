@@ -10,8 +10,8 @@ import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 function TopBar() {
-  const [navOn, changeNav] = useState(false);
-  const [page, setPage] = useState('home')
+  const [nav, setNav] = useState(false);
+  const [page, setPage] = useState("home");
 
   return (
     <nav className="flex z-10 sticky top-0 right-0 left-0 text-white justify-between px-7 items-center w-full h-[4.5rem] bg-black border-b border-gray-100 border-opacity-10">
@@ -30,9 +30,9 @@ function TopBar() {
         </div>
       </div>
       <section className="flex md:hidden">
-        {navOn ? (
+        {nav ? (
           <CloseIcon
-            onClick={() => changeNav(false)}
+            onClick={() => setNav(false)}
             sx={{ fontSize: 27 }}
             className="cursor-pointer"
           />
@@ -40,26 +40,41 @@ function TopBar() {
           <MenuIcon
             sx={{ fontSize: 27 }}
             className="cursor-pointer"
-            onClick={() => changeNav(true)}
+            onClick={() => setNav(true)}
           />
         )}
       </section>
       <ul className="hidden md:flex">
         <Link to="/home">
-          <li onClick={()=> setPage('home')} className={`px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer ${page === 'home'? 'text-[#FF7A00]' : ''} `}>
+          <li
+            onClick={() => setPage("home")}
+            className={`px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer ${
+              page === "home" ? "text-[#FF7A00]" : ""
+            } `}
+          >
             Home
           </li>
         </Link>
         <Link to="/foods">
-          <li onClick={()=> setPage('foods')} className={`px-3 hover:'text-[#FF7A00]' font-inter text-[.9rem] cursor-pointer ${page === 'foods'? 'text-[#FF7A00]' : ''} `}>
+          <li
+            onClick={() => setPage("foods")}
+            className={`px-3 hover:'text-[#FF7A00]' font-inter text-[.9rem] cursor-pointer ${
+              page === "foods" ? "text-[#FF7A00]" : ""
+            } `}
+          >
             Foods
           </li>
         </Link>
         <Link to="/orders">
-          <li onClick={()=> setPage('orders')} className={`px-3 hover:'text-[#FF7A00]' font-inter text-[.9rem] cursor-pointer ${page ===  'orders'? 'text-[#FF7A00]' : ''} `}>
+          <li
+            onClick={() => setPage("orders")}
+            className={`px-3 hover:'text-[#FF7A00]' font-inter text-[.9rem] cursor-pointer ${
+              page === "orders" ? "text-[#FF7A00]" : ""
+            } `}
+          >
             Orders
           </li>
-        </Link>   
+        </Link>
         <Link to="/login">
           <li className="px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer">
             <LogoutIcon sx={{ fontSize: 16 }} />
@@ -68,7 +83,7 @@ function TopBar() {
       </ul>
       <ul
         className={`mt-[4.5rem] w-[17.5rem] border-r border-slate-200 border-opacity-20 bg-[#000000] h-screen flex flex-col ${
-          navOn ? "left-0" : "left-[-17.5rem]"
+          nav ? "left-0" : "left-[-17.5rem]"
         }  md:hidden absolute bottom-0 top-0 ease-linear duration-300`}
       >
         <Link to="/home">

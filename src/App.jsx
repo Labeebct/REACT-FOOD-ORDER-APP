@@ -13,6 +13,11 @@ import Signup from "./pages/users/Signup";
 import ForgetPassword from "./pages/users/ForgetPassword";
 import ResetPassword from "./pages/users/ResetPassword";
 
+import AdminLayout from "./components/admin/Layout";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminFood from "./pages/admin/Foods";
+import AdminOrders from "./pages/admin/Orders";
+import AdminUsers from "./pages/admin/Users";
 
 function App() {
   return (
@@ -32,6 +37,13 @@ function App() {
           <Route path="/view-food" element={<Foodopen />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/checkout" element={<Checkout />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/foods" element={<AdminFood />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
         </Route>
       </Routes>
     </BrowserRouter>
