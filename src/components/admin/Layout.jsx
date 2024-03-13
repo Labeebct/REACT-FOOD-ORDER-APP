@@ -1,17 +1,15 @@
 import React from "react";
-import TopBar from "../../components/admin/TopBar";
 import LeftBar from "../../components/admin/LeftBar";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
     <>
-      <TopBar />
-      <main className="w-full h-[calc(100vh-4.5rem)] flex">
-        <div className="w-[20rem] h-full">
+      <main className="w-full h-screen flex">
+        <div className="w-[15rem] h-full">
           <LeftBar />
         </div>
-        <div className="h-full w-[calc(100%)]">
+        <div className="h-full w-[calc(100%-15rem)]">
           <Outlet />
         </div>
       </main>
