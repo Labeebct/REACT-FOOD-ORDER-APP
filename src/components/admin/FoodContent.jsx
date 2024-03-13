@@ -5,12 +5,12 @@ import BlockIcon from '@mui/icons-material/Block';
 import EditIcon from '@mui/icons-material/Edit';
 
 
-function AdminFoodContent() {
+function AdminFoodContent() {   
   return (
     <div className='h-full w-full p-4 flex flex-col items-center overflow-y-scroll'>
       <div className='w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-3 mb-4 sticky top-0 left-0 right-0'>
-        <h3 className='font-roboto text-[1.3rem] font-medium'>Foods List</h3>
-      <button className='p-2 py-2 text-white bg-[#ff6600] font-inter text-[.75rem] flex items-center gap-1 drop-shadow-2xl font-bold rounded-sm active:scale-[.98] ease-in-out duration-200'>ADD FOOD <AddIcon sx={{ fontSize: 20 }}/></button>
+        <h3 className='font-roboto text-[1.2rem] font-medium'>Foods List</h3>
+      <button onClick={()=>window.location.href = '/admin/add-food' } className='p-2 py-2 text-white bg-orange-600 font-inter text-[.75rem] flex items-center gap-1 drop-shadow-2xl font-bold rounded-sm active:scale-[.98] ease-in-out duration-200'>ADD FOOD <AddIcon sx={{ fontSize: 20 }}/></button>
       </div>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
         <thead>
@@ -22,7 +22,7 @@ function AdminFoodContent() {
           <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>DELIVERY</th>
           <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>CHARGE</th>
           <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>EDIT</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>STOP</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>BLOCK</th>
         </tr>
         </thead>
         <tbody>

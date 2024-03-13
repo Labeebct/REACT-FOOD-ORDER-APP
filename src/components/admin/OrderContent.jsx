@@ -10,14 +10,14 @@ function OrderContent() {
       </div>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
         <thead>
-        <tr className='text-[.98rem] font-inter '>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>ORDER _ID</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>USER</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>FOOD NAME</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>FOOD PICTURE</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>PRICE</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>DELIVERY</th>
-          <th className='font-bold border border-slate-200 border-opacity-20 py-6'>STATUS</th>
+        <tr className='text-[.92rem] font-inter '>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>ORDER _ID</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>USER</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>FOOD NAME</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>FOOD PICTURE</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>PRICE</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>DELIVERY</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>STATUS</th>
         </tr>
         </thead>
         <tbody>
@@ -29,11 +29,11 @@ function OrderContent() {
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 text-green-500'>$8282</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>4 hours</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>
-                <select name="orderstatus" className='text-black outline-none p-2 font-bold text-sm cursor-pointer rounded-sm' id="status">
-                    <option className='p-4' value="confirmed">CONFIRMED</option>
-                    <option className='p-4' value="packed">PACKED</option>
-                    <option className='p-4' value="sent out">SEND OUT</option>
-                    <option className='p-4' value="delivered">DELIVERED</option>
+                <select name="orderstatus" className='text-white bg-orange-600 outline-none p-2 font-bold text-sm cursor-pointer rounded-[.2rem]' id="status">
+                    <option className='p-4 bg-white text-black text-[.88rem]' value="confirmed">CONFIRMED</option>
+                    <option className='p-4 bg-white text-black text-[.88rem]' value="packed">PACKED</option>
+                    <option className='p-4 bg-white text-black text-[.88rem]' value="sent out">SEND OUT</option>
+                    <option className='p-4 bg-white text-black text-[.88rem]' value="delivered">DELIVERED</option>
                 </select>
             </td>
            </tr>

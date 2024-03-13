@@ -4,8 +4,8 @@ import BlockIcon from '@mui/icons-material/Block';
 function UsersContent() {
   return (
 <div className='h-full w-full p-4 flex flex-col items-center overflow-y-scroll'>
-      <div className='w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-3 mb-4 sticky top-0 left-0 right-0'>
-        <h3 className='font-roboto text-[1.3rem] font-medium'>Users List</h3>
+      <div className='w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-4 mb-4 sticky top-0 left-0 right-0'>
+        <h3 className='font-roboto text-[1.2rem] font-medium'>Users List</h3>
       </div>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
         <thead>
