@@ -8,16 +8,17 @@ function OrderContent() {
       <div className='w-full h-auto bg-[#ffffff23] flex justify-start px-3 items-center rounded-md py-4 mb-4 sticky top-0 left-0 right-0'>
         <h3 className='font-roboto text-[1.2rem] font-medium'>Orders List</h3>
       </div>
+      <div className='scrollbar-hide w-full h-auto overflow-x-scroll'>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
         <thead>
         <tr className='text-[.92rem] font-inter '>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>ORDER _ID</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>USER</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>FOOD NAME</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>FOOD PICTURE</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>PRICE</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>DELIVERY</th>
-          <th className='font-roboto border border-slate-200 border-opacity-20 py-6'>STATUS</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>ORDER _ID</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>USER</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>FOOD NAME</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>FOOD PICTURE</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>PRICE</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>DELIVERY</th>
+          <th className='font-roboto border border-slate-200 border-opacity-20 py-6 min-w-32'>STATUS</th>
         </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@ function OrderContent() {
            </tr>
         </tbody>
       </table>
+      </div>
     </div>  )
 }
 

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import loginLeftImg from "../../assets/Foods/pc1.jpg";
 
 function LoginContent() {
+
+  
+
   return (
     <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">
       <section className="w-[33%] mb-2 xl:w-[66%] min-w-[370px] h-[34rem] bg-white overflow-hidden rounded-[.6rem] flex justify-center">

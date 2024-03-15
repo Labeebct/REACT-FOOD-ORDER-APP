@@ -6,14 +6,20 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
 
 function LeftBar() {
   const [page, setPage] = useState("");
+  const [leftNav , setLeftNav ] = useState(false)
+
 
   return (
-    <div className="w-full h-screen overflow-hidden  border-r border-slate-200 border-opacity-20 bg-[#000000]">
-       <div className="text-[1.26rem] p-6 mb-5  sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro">
-        LABIOO
+    <div className={`xl:relative min-w-[3.1rem] ${ leftNav ? 'w-[14rem] absolute z-10' : 'w-[3.1rem]' } ease-in-out duration-200 xl:w-[16rem] h-full overflow-hidden  border-r border-slate-200 border-opacity-20 bg-[#000000]`}>
+       <div className="mb-5">
+         <h3 className="hidden xl:flex p-6  text-[1.26rem] sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro">LABIOO</h3>
+         <div className="xl:hidden cursor-pointer text-[#FF7A00] py-7 pl-4">{ leftNav ?  <CloseIcon onClick={()=>setLeftNav(false)}  sx={{ fontSize: 27 }}  /> : <MenuIcon onClick={()=>setLeftNav(true)}  sx={{ fontSize: 27 }}  /> }</div>
        </div>
       <ul
         className={`w-full h-full flex flex-col`}

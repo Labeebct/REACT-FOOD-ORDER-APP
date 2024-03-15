@@ -12,17 +12,18 @@ function AdminFoodContent() {
         <h3 className='font-roboto text-[1.2rem] font-medium'>Foods List</h3>
       <button onClick={()=>window.location.href = '/admin/add-food' } className='p-2 py-2 text-white bg-orange-600 font-inter text-[.75rem] flex items-center gap-1 drop-shadow-2xl font-bold rounded-sm active:scale-[.98] ease-in-out duration-200'>ADD FOOD <AddIcon sx={{ fontSize: 20 }}/></button>
       </div>
+      <div className='scrollbar-hide w-full h-auto overflow-x-scroll'>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
         <thead>
         <tr className='text-[.92rem] font-inter '>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>FOOD _ID</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>FOOD PICTURE</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>FOOD NAME</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>PRICE</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>DELIVERY</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>CHARGE</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>EDIT</th>
-          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6'>BLOCK</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>FOOD _ID</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>FOOD PICTURE</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>FOOD NAME</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>PRICE</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>DELIVERY</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>CHARGE</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>EDIT</th>
+          <th className='font-roboto font-[600] border border-slate-200 border-opacity-20 py-6 min-w-32'>BLOCK</th>
         </tr>
         </thead>
         <tbody>
@@ -42,6 +43,7 @@ function AdminFoodContent() {
            </tr>
         </tbody>
       </table>
+      </div>
     </div>
     )
 }

@@ -8,7 +8,7 @@ function AddFoodContent() {
         <h3 className="font-roboto text-[1.2rem] font-medium">Add Food</h3>
       </div>
       <div className="flex  items-center justify-center w-full h-[40rem] ">
-           <form className="flex flex-col px-16 p-5 items-center w-[50%] h-[100%] min-w-[400px] border border-slate-200 border-opacity-20">
+           <form className="flex flex-col px-14 p-5 items-center w-[40%] h-[100%] min-w-[400px] border border-slate-200 border-opacity-20">
               <div className="flex overflow-hidden rounded-lg items-center justify-center w-[9.5rem] h-[10.5rem] border border-slate-200 border-opacity-20 ">
                  <img src={foodImg} className="h-28 w-29" alt="" />
               </div>
@@ -16,7 +16,7 @@ function AddFoodContent() {
                 <div className="my-4 p-2 px-6 bg-orange-600 font-poppins font-medium text-[.8rem] rounded-[1rem]">CHOOSE FILE</div>
                 <input className="absolute opacity-0" type="file" />
               </div>
-              <div className="w-[90%] mt-1 h-auto flex flex-col gap-5">
+              <div className="w-full mt-1 h-auto flex flex-col gap-5">
                 <input type="text" spellCheck={false} placeholder="Name" className="w-full h-[2.6rem] bg-[#5856567b] rounded-sm outline-none px-4" />
                 <input type="text" spellCheck={false} placeholder="Price" className="w-full h-[2.6rem] bg-[#5856567b] rounded-sm outline-none px-4" />
                 <input type="text" spellCheck={false} placeholder="Charge" className="w-full h-[2.6rem] bg-[#5856567b] rounded-sm outline-none px-4" />

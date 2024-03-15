@@ -6,10 +6,8 @@ function Layout() {
   return (
     <>
       <main className="w-full h-screen flex">
-        <div className="w-[17rem] h-full">
-          <LeftBar />
-        </div>
-        <div className="h-full w-[calc(100%-17rem)]">
+        <LeftBar />
+        <div className="w-full xl:w-[calc(100%-16rem)] h-full ">
           <Outlet />
         </div>
       </main>
