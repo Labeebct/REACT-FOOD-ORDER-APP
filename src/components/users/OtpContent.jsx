@@ -6,7 +6,7 @@ import loginLeftImg from "../../assets/Foods/pc1.jpg";
 function OtpContent() {
 
   const navigate = useNavigate()
-
+ 
   //Taking out email from params
   const { email } = useParams();
   const inputsRef = useRef([]);
