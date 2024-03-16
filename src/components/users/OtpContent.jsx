@@ -8,7 +8,7 @@ function OtpContent() {
   const navigate = useNavigate()
  
   //Taking out email from params
-  const { email } = useParams();
+  const { email, verifyType } = useParams();
   const inputsRef = useRef([]);
 
   // const [otpValue , setOtpValue] = useState()
@@ -48,7 +48,12 @@ function OtpContent() {
         setMessage('OTP should be 4 Digits')
       }
       else {
+
+        //Checking whether verification is for signup or password reset
+        if( verifyType == 'signup' || verifyType == 'login'){
          try {
+
+          //Api route for signup verify
           const response = await AxiosInstance.post(`/otp-verification/${email}`,{otpValue})
           const {data , status} = response
 
@@ -56,7 +61,41 @@ function OtpContent() {
             //Setting success message after and redirecting to login page after verification success
             setMessage(data.msg)
             setVerified(true)
-            setTimeout(() => navigate('/login'), 800);
+            verifyType == 'login' ? setTimeout(() => navigate('/home'), 800) : setTimeout(() => navigate('/login'), 800)
+          }
+        } catch (error) {
+           if(error.response){
+             const {data , status} = error.response
+ 
+             //Handling errors based on status code
+             if(status == 422 || status == 409 ){
+              inputsRef.current.map(input => input.value = '')
+              setMessage(data.msg)
+             }
+             else if(status == 403){
+               setMessage(data.msg)
+               setTimeout(() => navigate('/signup'), 800);
+              }
+             // If verification failed by any malfunction
+             else{
+              console.log('Internal server error',error);
+             }
+           } else {
+             console.log('Error in submit otp',error);
+          }
+        }
+      } else {
+
+        //Api route for password reset
+        try {
+          const response = await AxiosInstance.post(`/forget-otp-verification/${email}`,{otpValue})
+          const {data , status} = response
+
+          if(status == 200){
+            //Setting success message after and redirecting to login page after verification success
+            setMessage(data.msg)
+            setVerified(true)
+            setTimeout(() => navigate(`/reset-password?email=${data.email}`), 800);
           }
         } catch (error) {
            if(error.response){
@@ -68,10 +107,6 @@ function OtpContent() {
               setMessage(data.msg)
              }
              // If verification failed by any malfunction
-             else if(status == 403){
-              setMessage(data.msg)
-              setTimeout(() => navigate('/signup'), 800);
-             }
              else{
               console.log('Internal server error',error);
              }
@@ -79,7 +114,8 @@ function OtpContent() {
              console.log('Error in submit otp',error);
           }
         }
-      }
+       }
+      }      
     } catch (error) {
       console.log('Error in submit otp',error);
     }

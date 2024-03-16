@@ -66,7 +66,7 @@ function SignupContent() {
         //Redirecting to login section after registration
         setRegister(true)
         setSubmitError(data.msg)
-        setTimeout(() => Navigate(`/confirm-otp/${data.email}`), 800);
+        setTimeout(() => Navigate(`/otp-verification/signup/${data.email}`), 800);
         }
        } catch (error) {
         if(error.response){
@@ -79,12 +79,12 @@ function SignupContent() {
           
           // Passing error if user already exist
           setSubmitError(data.msg)
-          setTimeout(() => Navigate('/login'), 800);
+          setTimeout(() => Navigate('/login'), 1000);
         } else if (status == 401){
 
           //If user exist and user is not verified
-          setSubmitError('Verification is needed')
-          setTimeout(() => Navigate(`/confirm-otp/${data.email}`), 800);
+          setSubmitError(data.msg)
+          setTimeout(() => Navigate('/login'), 1000);
         } 
       } else {
         console.log('Error in signup form submit',error);
@@ -107,9 +107,9 @@ return (
           <div className="w-full h-auto flex flex-col  gap-1">
             <label
               htmlFor="username"
-              className={`font-roboto pl-2 ${usernameError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
+              className={`font-roboto pl-2 ${ userName && usernameError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
             >
-              { usernameError ? usernameError : 'Username' }
+              { userName && usernameError  ? usernameError : 'Username' }
             </label>
             <input
               onChange={handleChange}
@@ -121,9 +121,9 @@ return (
             />
             <label
               htmlFor="email"
-              className={`font-roboto pl-2 ${emailError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
+              className={`font-roboto pl-2 ${email && emailError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
             >
-              {emailError ? emailError : 'Email'}
+              {email && emailError ? emailError : 'Email'}
             </label>
             <input
               onChange={handleChange}
@@ -135,9 +135,9 @@ return (
             />
             <label
               htmlFor="password"
-              className={`font-roboto pl-2 ${passwordError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
+              className={`font-roboto pl-2 ${ password &&passwordError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
             >
-              { passwordError ? passwordError : 'Password' }
+              { password && passwordError ? passwordError : 'Password' }
             </label>
             <input
               onChange={handleChange}
@@ -150,9 +150,9 @@ return (
             />
             <label
               htmlFor="connfirmpassword"
-              className={`font-roboto pl-2 ${confirmPasswordError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
+              className={`font-roboto pl-2 ${confirmPassword && confirmPasswordError ? 'text-[red]' : ''} text-[gray] text-[.75rem]`}
             >
-              { confirmPasswordError ? confirmPasswordError : 'Confirm Password' }
+              { confirmPassword && confirmPasswordError ? confirmPasswordError : 'Confirm Password' }
             </label>
             <input
               onChange={handleChange}
