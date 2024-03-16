@@ -113,7 +113,7 @@ function OtpContent() {
             ))}
           </div>
           { message && <p className={`${verified ? 'text-green-600' : 'text-red-500'} text-center mt-5`}>{message}</p>}
-          <button type="submit" className="px-8 py-3 mt-4 hover:bg-[#FF5A00] font-poppins font-[700] tracking-wider top-[21rem] right-24 bg-[#FF7A00] rounded-3xl text-white cursor-pointer">
+          <button type="submit" className="px-8 py-3 mt-4 hover:bg-[#FF5A00] active:scale-[.96] ease-out duration-100 font-poppins font-[700] tracking-wider top-[21rem] right-24 bg-[#FF7A00] rounded-3xl text-white cursor-pointer">
             SUBMIT
           </button>
         </form>
