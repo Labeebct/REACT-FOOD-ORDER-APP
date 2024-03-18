@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import BlockIcon from '@mui/icons-material/Block';
+import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.css'
+import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import axiosInstancce from '../../instance/axiosInstance'
 
 function UsersContent() {
 
   const [userdata , setUserdata] = useState([])
+  const [blocked , setBlocked] = useState('')
 
   useEffect(()=>{
 
@@ -21,6 +25,55 @@ function UsersContent() {
   
   },[])
 
+
+  //Function to block user
+  const blockUser = async(userId) => {
+    try {
+
+      //Finding user to find the current status
+      const findUser = userdata.find((user) => user._id == userId)
+
+      const setStatus = findUser.status === 'active' ? 'BLOCK' : 'UNBLOCK'
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: `You Want to ${setStatus} the user?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: `Yes, ${setStatus} It!`,
+        reverseButtons: true
+      }).then(async(result) => {
+
+        if (result.isConfirmed) {
+
+          //Sending api request to backend to block user
+          const response = await axiosInstancce.patch(`/admin/block-user?userId=${userId}`)
+
+          const { data , status } = response
+
+          if(status == 200){
+            setUserdata((prevUserData) => 
+              prevUserData.map((user) => 
+                user._id === userId ? { ...user, status: data.status } : user
+              )
+            );
+            setBlocked(data.setStatus)
+          }  
+
+          Swal.fire({
+            title: `${blocked}!`,
+            text: `User Has been succesfully ${blocked}`,
+            icon: "success"
+          });
+        }
+      });
+        
+    } catch (error) {
+      console.log('Error in block user',error);
+    }
+  }
 
   return (
 <div className='h-full w-full p-4 flex flex-col items-center overflow-y-scroll'>
@@ -43,21 +96,23 @@ function UsersContent() {
         <tbody>
           { userdata.map((data,index) => (
  
-           <tr className='cursor-pointer h-[6rem]' key={index}>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 capitalize'>{data.userName}</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>{data.email}</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>8590471530</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>6</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>
+           <tr className='cursor-pointer h-[4.5rem]' key={index}>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4 capitalize'>{data.userName}</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>{data.email}</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>8590471530</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>6</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>
             {new Date(data.regDate).toLocaleDateString('en-GB', {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric'
               })}
             </td>
-            <td className={`font-[300] border border-slate-200 ${data.status == 'active' ?  'text-green-400'  : 'text-red-600'} border-opacity-20 text-center font-roboto text-[.95rem] py-4 capitalize`}>{data.status}</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 text-red-600'>
-              <button className='active:scale-[.9] ease-in-out duration-100'><BlockIcon /></button>
+            <td className={`font-[600] border border-slate-200 ${data.status == 'active' ?  'text-green-600'  : 'text-red-600'} border-opacity-20 text-center font-roboto text-[.9rem] py-4 uppercase`}>{data.status}</td>
+            <td className={`font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4 ${data.status == 'active' ? 'text-red-600' : 'text-green-600'}`}>
+              <button className='active:scale-[.9] ease-in-out duration-100' onClick={()=> blockUser(data._id)}>
+                { data.status == 'active' ? <BlockIcon /> : <PanoramaFishEyeIcon />}
+              </button>
             </td>
            </tr>
  
