@@ -20,7 +20,7 @@ function AddFoodContent() {
         try {
 
           const formData = new FormData()
-
+ 
           formData.append('foodname',foodname)
           formData.append('foodprice',foodprice)
           formData.append('foodcharge',foodcharge)
