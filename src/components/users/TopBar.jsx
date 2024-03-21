@@ -8,10 +8,19 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import {useNavigate } from "react-router-dom";
 
 function TopBar() {
+
+  const Navigate = useNavigate()
+
   const [nav, setNav] = useState(false);
   const [page, setPage] = useState("home");
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    Navigate('/login')
+  }
 
   return (
     <nav className="flex z-10 sticky top-0 right-0 left-0 text-white justify-between px-7 items-center w-full h-[4.5rem] bg-black border-b border-gray-100 border-opacity-10">
@@ -76,7 +85,7 @@ function TopBar() {
           </li>
         </Link>
         <Link to="/login">
-          <li className="px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer">
+          <li className="px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer" onClick={logout}>
             <LogoutIcon sx={{ fontSize: 16 }} />
           </li>
         </Link>
@@ -105,7 +114,7 @@ function TopBar() {
           </li>
         </Link>
         <Link to="/login">
-          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
+          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer" onClick={logout}>
             <LogoutIcon />
             Logout
           </li>

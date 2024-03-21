@@ -65,6 +65,7 @@ function LoginContent() {
           if (status == 200) {
             setMessage(data.msg);
             setLoginSuccess(true);
+            localStorage.setItem('token', data.token);            
             setTimeout(() => Navigate("/home"), 800);
           }
         } catch (error) {
