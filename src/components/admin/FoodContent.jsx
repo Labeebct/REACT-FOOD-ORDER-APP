@@ -116,12 +116,12 @@ function AdminFoodContent() {
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>${foods.foodcharge}</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 text-green-500'>
               <button className='active:scale-[.9] ease-in-out duration-100'><EditIcon /></button>
-              </td>
+            </td>
             <td className={`font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 ${foods.blocked ? 'text-green-600' : 'text-red-600' }`}>
               <button onClick={()=>blockUser(foods._id)} className='active:scale-[.9] ease-in-out duration-100'>
                { foods.blocked ? <PanoramaFishEyeIcon /> : <BlockIcon /> }
               </button>
-              </td>
+            </td>
            </tr>
 
             ))}

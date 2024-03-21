@@ -37,7 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/foods" element={<Foods />} />
-          <Route path="/view-food" element={<Foodopen />} />
+          <Route path="/view-food/:foodId" element={<Foodopen />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/checkout" element={<Checkout />} />
         </Route>
@@ -49,6 +49,7 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/foods" element={<AdminFood />} />
           <Route path="/admin/add-food" element={<AddFood />} />
+          <Route path="/admin/edit-food/:id:" element={<AddFood />} />
           <Route path="/admin/orders" element={<AdminOrders />} />
           <Route path="/admin/users" element={<AdminUsers />} />
         </Route>
