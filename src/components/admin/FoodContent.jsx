@@ -6,10 +6,12 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import AddIcon from '@mui/icons-material/Add';
 import BlockIcon from '@mui/icons-material/Block';
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from 'react-router-dom';
 
 
 function AdminFoodContent() {   
 
+  const Navigate = useNavigate()
 
   const [data , setData] = useState([])
 
@@ -87,7 +89,7 @@ function AdminFoodContent() {
     <div className='h-full w-full p-4 flex flex-col items-center overflow-y-scroll'>
       <div className='w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-3 mb-4 sticky top-0 left-0 right-0'>
         <h3 className='font-roboto text-[1.2rem] font-medium'>Foods List</h3>
-      <button onClick={()=>window.location.href = '/admin/add-food' } className='p-2 py-2 text-white bg-orange-600 font-inter text-[.75rem] flex items-center gap-1 drop-shadow-2xl font-bold rounded-sm active:scale-[.98] ease-in-out duration-200'>ADD FOOD <AddIcon sx={{ fontSize: 20 }}/></button>
+      <button onClick={()=> Navigate('/admin/add-food') } className='p-2 py-2 text-white bg-orange-600 font-inter text-[.75rem] flex items-center gap-1 drop-shadow-2xl font-bold rounded-sm active:scale-[.98] ease-in-out duration-200'>ADD FOOD <AddIcon sx={{ fontSize: 20 }}/></button>
       </div>
       <div className='scrollbar-hide w-full h-auto overflow-x-scroll'>
       <table className='border border-slate-200 border-opacity-20 w-full h-auto'>
@@ -115,7 +117,7 @@ function AdminFoodContent() {
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>{foods.fooddelivery} hours</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>${foods.foodcharge}</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 text-green-500'>
-              <button className='active:scale-[.9] ease-in-out duration-100'><EditIcon /></button>
+              <button onClick={() => Navigate(`/admin/edit-food/${foods._id}`)} className='active:scale-[.9] ease-in-out duration-100'><EditIcon /></button>
             </td>
             <td className={`font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 ${foods.blocked ? 'text-green-600' : 'text-red-600' }`}>
               <button onClick={()=>blockUser(foods._id)} className='active:scale-[.9] ease-in-out duration-100'>

@@ -1,21 +1,67 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axionInstance from "../../instance/axiosInstance";
 
 function AddFoodContent() {
 
+  const { foodId } = useParams()
+
   const Navigate = useNavigate()
   const [message, setMessage] = useState("");
+  const [food , setFood] = useState('')
   const [success , setSuccess] = useState(false)
+
+  if(foodId){
+    
+    useEffect(() => {
+
+      //if it is edit food fetching edited food to add into input value
+      const fetchEditfood = async() => {
+        try {
+
+          const response = await axionInstance.get(`/admin/edit-food/${foodId}`)
+          const {data , status} = response
+
+          if(status == 200) {
+            setFood(data.food)
+          }
+          
+        } catch (error) {
+           if(error.response) {
+
+            const {status} = error.response
+
+            if(status == 404) {
+              console.log('Food not found');
+            }
+
+           } else {
+             console.log('Errorn in fetch edit foods , no response from the server',error);
+           }
+        }
+      }
+
+      fetchEditfood()
+      
+    },[])
+
+
+  }
+
+  const axiosUrl = foodId ? `/admin/edit-food/${foodId}` : `/admin/add-food`
+
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
+
+      
       const { foodname, foodprice, foodcharge, fooddelivery , foodImg } = values;
 
       if ((!foodname || !foodprice || !foodcharge || !fooddelivery || !foodImg)) {
         setMessage("Please Fill all Fields");
       } else {
+        console.log('elseeee');
 
         try {
 
@@ -28,7 +74,7 @@ function AddFoodContent() {
           formData.append('foodImg',foodImg)
           
         //Sending the api request to api
-        const response = await axionInstance.post('/admin/add-food',formData,{
+        const response = await axionInstance.post(axiosUrl,formData,{
           headers:{
             'Content-Type':'multipart/form-data'
           }
@@ -55,6 +101,8 @@ function AddFoodContent() {
               console.log('Internal server error',error);
             }
             console.log('Internal Server error',error);
+        } else {
+          console.log('No response from server',error);
         }
       }
     }
@@ -71,12 +119,13 @@ function AddFoodContent() {
       </div>
       <div className="flex  items-center justify-center w-full h-[40rem] ">
         <Formik
+          enableReinitialize={true}
           initialValues={{
-            foodname: "",
-            foodprice: "",
-            foodcharge: "",
-            fooddelivery: "",
-            foodImg:""
+            foodname: food.foodname || "",
+            foodprice: food.foodprice ||  "",
+            foodcharge: food.foodcharge ||  "",
+            fooddelivery:  food.fooddelivery || "",
+            foodImg: food.foodImg || ""
           }}
           onSubmit={handleSubmit}
         >
@@ -86,7 +135,7 @@ function AddFoodContent() {
               className="flex flex-col rounded-md px-14 p-3 items-center w-[40%] h-[100%] min-w-[400px] border border-slate-200 border-opacity-20"
             >
               <div className="flex overflow-hidden rounded-lg items-center justify-center w-[9rem] h-[10rem] border border-slate-200 border-opacity-20 ">
-                <img src={values.imageUrl ? values.imageUrl : ''} className="h-24 w-29" alt="" />
+                <img src={ values.imageUrl ? values.imageUrl : food ? 'http://localhost:8082/' + food.foodImg : ''} className="h-24 w-29" alt="" />
               </div>
               <div className="relative w-auto flex items-center overflow-hidden">
                 <div className="my-4 p-2 px-6 bg-orange-600 font-poppins font-medium text-[.8rem] rounded-[1rem]">

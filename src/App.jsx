@@ -49,7 +49,7 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/foods" element={<AdminFood />} />
           <Route path="/admin/add-food" element={<AddFood />} />
-          <Route path="/admin/edit-food/:id:" element={<AddFood />} />
+          <Route path="/admin/edit-food/:foodId" element={<AddFood />} />
           <Route path="/admin/orders" element={<AdminOrders />} />
           <Route path="/admin/users" element={<AdminUsers />} />
         </Route>
