@@ -1,5 +1,4 @@
 import React from "react";
-import axiosInstance from '../../instance/axiosInstance'
 
 function CheckoutAddressArea() {
 
@@ -123,7 +122,7 @@ function CheckoutAddressArea() {
           <input
             spellCheck={false}
             className="h-[2.4rem] w-full bg-[#5e58587b] outline-none px-4 text-[.9rem]"
-            type="text"
+            type="number"
             name="houseno"
           />
         </span>

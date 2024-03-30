@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -11,9 +11,17 @@ import CloseIcon from "@mui/icons-material/Close";
 
 
 function LeftBar() {
+
+  const navigate = useNavigate()
+
   const [page, setPage] = useState("");
   const [leftNav , setLeftNav ] = useState(false)
 
+  const handleLogout = () => {
+    setPage("Logout")
+    localStorage.removeItem('token')
+    navigate('/admin/login',{replace:true})
+  }
 
   return (
     <div className={`xl:relative min-w-[3.1rem] ${ leftNav ? 'w-[14rem] absolute z-10' : 'w-[3.1rem]' } ease-in-out duration-200 xl:w-[16rem] h-full overflow-hidden  border-r border-slate-200 border-opacity-20 bg-[#000000]`}>
@@ -70,7 +78,7 @@ function LeftBar() {
         </Link>
         <Link to="/admin/login">
           <li
-            onClick={() => setPage("Logout")}
+            onClick={handleLogout}
             className={`px-5 py-5 text-[.9rem] text-[#fffffff7] flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-400 border-opacity-10 cursor-pointer`}
           >
             <LogoutIcon sx={{ fontSize: 20 }} />

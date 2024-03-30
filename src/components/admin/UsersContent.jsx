@@ -8,6 +8,7 @@ import axiosInstancce from '../../instance/axiosInstance'
 function UsersContent() {
 
   const [userdata , setUserdata] = useState([])
+  const [orders , setOrders] = useState([])
   const [blocked , setBlocked] = useState('')
 
   useEffect(()=>{
@@ -18,6 +19,7 @@ function UsersContent() {
 
     //Saving the signupdata in data state
     if(status == 200) 
+    setOrders(data.orders)
     setUserdata(data.signupDatas)
     }
 
@@ -74,7 +76,7 @@ function UsersContent() {
       console.log('Error in block user',error);
     }
   }
-
+  
   return (
 <div className='h-full w-full p-4 flex flex-col items-center overflow-y-scroll'>
       <div className='w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-4 mb-4 sticky top-0 left-0 right-0'>
@@ -99,8 +101,10 @@ function UsersContent() {
            <tr className='cursor-pointer h-[4.5rem]' key={index}>
             <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4 capitalize'>{data.userName}</td>
             <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>{data.email}</td>
-            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>8590471530</td>
-            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>6</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>{data.address[0] ? data.address[0].mobilenum : 'XXXXXXXXXX' }</td>
+            <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>
+            {orders.filter(order => order.userId === data._id).length}
+            </td>
             <td className='font-[400] border border-slate-200 border-opacity-20 text-center font-roboto text-[.93rem] py-4'>
             {new Date(data.regDate).toLocaleDateString('en-GB', {
                 day: '2-digit',

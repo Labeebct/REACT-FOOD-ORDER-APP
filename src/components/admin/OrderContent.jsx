@@ -93,7 +93,7 @@ function OrderContent() {
     <div className="h-full w-full p-4 flex flex-col items-center overflow-y-scroll">
       {success && (
         <div className="absolute bg-black bg-opacity-60 inset-0 h-screen w-screen flex justify-center items-center">
-          <Alert variant="filled" severity="success">
+         <Alert variant="filled" severity="success">
             Order status has been updated.
           </Alert>
         </div>

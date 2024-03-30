@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 import React, {  useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -14,7 +15,12 @@ function Layout() {
         const token = localStorage.getItem("token");
 
         if (token) {
-          setAuthenticate(true);
+          const payload = jwtDecode(token);
+          if(payload.role == 'user'){
+            setAuthenticate(true);
+          } else {
+            navigate('/admin/dashboard',{replace:true})
+          }
         } else {
           setAuthenticate(false);
           navigate('/login', {replace: true})

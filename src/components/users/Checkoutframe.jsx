@@ -12,7 +12,7 @@ function Checkoutframe({food,quantity,setQuantity}) {
       <div className="h-full w-[11rem] border-r border-slate-200 border-opacity-20 flex items-center justify-center">
         <img
           src={'http://localhost:8082/' + food.foodImg}
-          className="h-32 w-32 md:w-36 md:h-32"
+          className="h-24 w-24 md:w-28 md:h-28"
           alt="food image"
         />
       </div>

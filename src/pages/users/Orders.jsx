@@ -6,7 +6,6 @@ function Orders() {
 
   //Setting variable state variable for orders
   const [orders , setOrders] = useState([])
-  const [error , setError] = useState(null)
 
   useEffect(() => {
 

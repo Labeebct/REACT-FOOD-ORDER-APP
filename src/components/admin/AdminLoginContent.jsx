@@ -46,6 +46,7 @@ function AdminLoginContent() {
           if(status == 200){
             setSuccess(true)
             setMessage(data.msg)
+            localStorage.setItem("token", data.token);
             setTimeout(() => Navigate('/admin/dashboard'), 800);
           }
         } catch (error) {

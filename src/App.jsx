@@ -1,10 +1,9 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import axionsInstance from "./instance/axiosInstance";
+import {  useLayoutEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/common/Layout";
 
-import Home from "./pages/users/Home";
+import Home from  "./pages/users/Home";
 import Foodopen from "./pages/users/FoodOpen";
 import Foods from "./pages/users/Foods";
 import Orders from "./pages/users/Orders";
@@ -26,8 +25,18 @@ import AdminUsers from "./pages/admin/Users";
 import AddFood from "./pages/admin/AddFood";
 
 function App() {
+
+  const Wrapper = ({children}) => {
+    const location = useLocation();
+    useLayoutEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+    }, [location.pathname]);
+    return children
+  } 
+
   return (
     <BrowserRouter>
+    <Wrapper>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -41,9 +50,7 @@ function App() {
         <Route path="/admin/signup" element={<AdminSignup />} />
         <Route path="/admin/login" element={<AdminLogin />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        
+
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/foods" element={<Foods />} />
@@ -62,7 +69,9 @@ function App() {
         </Route>
 
         <Route path="*" element={<NotFound />} />
+        
       </Routes>
+      </Wrapper>
     </BrowserRouter>
   );
 }
