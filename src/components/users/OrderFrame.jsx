@@ -7,7 +7,7 @@ function OrderFrame({orders}) {
     <>
     { orders.map((order,index) => 
 
-    <div key={index} className="w-full h-[12rem] flex border border-slate-200 border-opacity-20">
+    <div key={index} className="w-full h-[12rem] mt-1 flex border border-slate-200 border-opacity-20">
       <div className="h-full w-[11rem] border-r border-slate-200 border-opacity-20 flex items-center justify-center">
         <img
           src={'http://localhost:8082/' + order.foodId.foodImg}
@@ -30,7 +30,7 @@ function OrderFrame({orders}) {
       QTY : {order.quantity}
       </div>
       <div className="h-full w-[8rem]  flex items-center justify-center">
-        <h3 className="text-green-600 text-[.6rem] md:text-[.9rem] font-poppins font-bold pb-8 tracking-wider">
+        <h3 className="text-green-600 text-[.74em] md:text-[.9rem] font-poppins font-bold pb-8 tracking-wider">
         {order.status}
         </h3>
       </div>

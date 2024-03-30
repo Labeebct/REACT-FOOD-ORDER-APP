@@ -18,7 +18,6 @@ function Orders() {
         const {data , status} = response
 
         if(status == 200) {
-          console.log(data.orders);
           setOrders(data.orders)
         }
       } catch (error) {
