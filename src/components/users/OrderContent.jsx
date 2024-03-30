@@ -1,10 +1,10 @@
 import React from "react";
 import OrderFrame from "../../components/users/OrderFrame";
 
-function OrderContent() {
+function OrderContent({orders}) {
   return (
     <main className="w-full h-[calc(100vh-4.5rem)] p-4 overflow-y-auto">
-      <OrderFrame />
+      <OrderFrame orders={orders} />
     </main>
   );
 }

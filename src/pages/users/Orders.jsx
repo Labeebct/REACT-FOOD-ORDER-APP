@@ -6,6 +6,7 @@ function Orders() {
 
   //Setting variable state variable for orders
   const [orders , setOrders] = useState([])
+  const [error , setError] = useState(null)
 
   useEffect(() => {
 
@@ -17,6 +18,7 @@ function Orders() {
         const {data , status} = response
 
         if(status == 200) {
+          console.log(data.orders);
           setOrders(data.orders)
         }
       } catch (error) {
@@ -25,9 +27,7 @@ function Orders() {
 
           const {status} = error.response
           if(status == 404) {
-            return(
-              <h1>not found</h1>
-            )
+            setError('No Orders not Found')
           } else {
             console.log('Internal server error');
           }
@@ -41,7 +41,7 @@ function Orders() {
     fetchOrders()
 
   },[])
-  
+
   return (
     <OrderContent orders={orders} />
   )
