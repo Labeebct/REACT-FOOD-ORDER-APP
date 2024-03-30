@@ -65,15 +65,20 @@ function LoginContent() {
           if (status == 200) {
             setMessage(data.msg);
             setLoginSuccess(true);
-            localStorage.setItem('token', data.token);            
-            setTimeout(() => Navigate("/home"), 800);
+            localStorage.setItem("token", data.token);
+            setTimeout(() => Navigate("/"), 800);
           }
         } catch (error) {
           if (error.response) {
             //Destructuring data and status from error reponse
             const { data, status } = error.response;
 
-            if (status == 422 || status == 401 || status == 404 || status == 503) {
+            if (
+              status == 422 ||
+              status == 401 ||
+              status == 404 ||
+              status == 503
+            ) {
               setMessage(data.msg);
             } else if (status === 403) {
               //if user exist and not verified

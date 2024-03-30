@@ -1,9 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axionsInstance from '../../instance/axiosInstance'
 import OrderContent from '../../components/users/OrderContent'
 
 function Orders() {
+
+  //Setting variable state variable for orders
+  const [orders , setOrders] = useState([])
+
+  useEffect(() => {
+
+    //Fetching order datas
+    const fetchOrders = async() => {
+      try {
+
+        const response = await axionsInstance.get('/orders')
+        const {data , status} = response
+
+        if(status == 200) {
+          setOrders(data.orders)
+        }
+      } catch (error) {
+
+        if(error.response) {
+
+          const {status} = error.response
+          if(status == 404) {
+            return(
+              <h1>not found</h1>
+            )
+          } else {
+            console.log('Internal server error');
+          }
+
+        } else {
+          console.log('No response from the server',error)
+        }
+      }
+    }
+
+    fetchOrders()
+
+  },[])
+  
   return (
-    <OrderContent />
+    <OrderContent orders={orders} />
   )
 }
 

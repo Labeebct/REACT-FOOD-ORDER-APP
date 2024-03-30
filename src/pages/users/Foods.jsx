@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import FoodsArea from '../../components/users/FoodsArea'
+import FoodsAreaGrid from '../../components/users/FoodsAreaGrid'
 import axiosInstance from '../../instance/axiosInstance'
+import { useLocation } from 'react-router-dom'
 
 function Foods() {
+
+  //Taking out price from query
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const price = queryParams.get('price')
 
   const [foods,setFoods] = useState([])
 
@@ -12,7 +18,7 @@ function Foods() {
       try {
     
         //Sending api to collect foods to show in home page
-        const response = await axiosInstance.get('/foods')
+        const response = await axiosInstance.get(`/foods?price=${price}`)
         const {data , status} = response
 
         if(status == 200){
@@ -26,10 +32,10 @@ function Foods() {
     fetchFoods()
     
     
-  },[])
+  })
 
   return (
-    <FoodsArea foods={foods} />
+    <FoodsAreaGrid foods={foods} />
   )
 }
 

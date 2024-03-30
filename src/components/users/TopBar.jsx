@@ -18,7 +18,7 @@ function TopBar() {
   const [page, setPage] = useState("home");
 
   const logout = () => {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
     Navigate('/login')
   }
 
@@ -54,7 +54,7 @@ function TopBar() {
         )}
       </section>
       <ul className="hidden md:flex">
-        <Link to="/home">
+        <Link to="/">
           <li
             onClick={() => setPage("home")}
             className={`px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer ${

@@ -100,7 +100,6 @@ function AddFoodContent() {
             } else {
               console.log('Internal server error',error);
             }
-            console.log('Internal Server error',error);
         } else {
           console.log('No response from server',error);
         }

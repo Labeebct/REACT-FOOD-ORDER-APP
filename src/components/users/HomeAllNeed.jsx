@@ -1,7 +1,11 @@
 import React from "react";
 import CartoonCheff from "../../assets/Foods/cartoon cheff.png";
+import { useNavigate } from "react-router-dom";
 
 function HomeAllNeed() {
+
+  const Navigate = useNavigate()
+
   return (
     <div className="w-full h-auto my-32 flex justify-around flex-wrap border-1">
       <div className="w-[50%] min-w-[430px] h-[30rem] flex items-center justify-center lg:border-r border-white border-opacity-20">
@@ -16,7 +20,7 @@ function HomeAllNeed() {
           ALL YOU NEED IS HERE
         </h3>
         <h4 className="font-playfair text-[3.4rem] mb-24">@99</h4>
-        <button className="px-12 py-3 text-[1rem] tracking-wide rounded-3xl bg-[#E00000] text-white font-poppins font-[600]">
+        <button onClick={() => Navigate(`/foods?price=${99}`) } className="px-12 py-[.9rem] text-[1rem] duration-75 ease-linear active:scale-[.95] tracking-wide rounded-[2rem] bg-[#E00000] text-white font-poppins font-[600]">
           SHOP NOW
         </button>
       </div>
