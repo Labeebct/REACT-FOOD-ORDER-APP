@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
@@ -8,19 +10,40 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TopBar() {
-
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const [nav, setNav] = useState(false);
   const [page, setPage] = useState("home");
 
   const logout = () => {
-    localStorage.removeItem('token');
-    Navigate('/login')
-  }
+    confirmAlert({
+      title: "Confirm to LOGOUT",
+      message: "Are you sure you want to Logout?",
+      titleClassName: "text-xl font-bold text-green-500",
+      buttons: [
+        {
+          label: "Yes",
+          style: { backgroundColor: "#D80032" },
+          className: "text-white font-bold py-2 px-4 rounded mr-2",
+          onClick: async () => {
+            localStorage.removeItem("token");
+            Navigate("/login");
+          },
+        },
+        {
+          label: "No",
+          style: { backgroundColor: "#65B741" },
+          className:
+            "bg-green-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mr-2",
+        },
+      ],
+      overlayClassName:
+        "fixed inset-0 bg-[black] bg-opacity-50 flex justify-center items-center",
+    });
+  };
 
   return (
     <nav className="flex z-10 sticky top-0 right-0 left-0 text-white justify-between px-7 items-center w-full h-[4.5rem] bg-black border-b border-gray-100 border-opacity-10">
@@ -85,7 +108,10 @@ function TopBar() {
           </li>
         </Link>
         <Link to="/login">
-          <li className="px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer" onClick={logout}>
+          <li
+            className="px-3 hover:text-[#FF7A00] font-inter text-[.9rem] cursor-pointer"
+            onClick={logout}
+          >
             <LogoutIcon sx={{ fontSize: 16 }} />
           </li>
         </Link>
@@ -114,7 +140,10 @@ function TopBar() {
           </li>
         </Link>
         <Link to="/login">
-          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer" onClick={logout}>
+          <li
+            className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer"
+            onClick={logout}
+          >
             <LogoutIcon />
             Logout
           </li>

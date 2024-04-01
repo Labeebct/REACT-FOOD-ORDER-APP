@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import FoodsAreaGrid from '../../components/users/FoodsAreaGrid'
 import axiosInstance from '../../instance/axiosInstance'
 import { useLocation } from 'react-router-dom'
+import loadingVideo from "../../assets/Foods/loading.mp4";
 
 function Foods() {
+
+  const [loading, setLoading] = useState(true);
 
   //Taking out price from query
   const location = useLocation()
@@ -23,6 +26,7 @@ function Foods() {
 
         if(status == 200){
           setFoods(data.foods)
+          setLoading(false)
         }
       } catch (error) {
         console.log('Error in fetch foods',error);
@@ -33,6 +37,20 @@ function Foods() {
     
     
   })
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem] mb-28"
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <FoodsAreaGrid foods={foods} />

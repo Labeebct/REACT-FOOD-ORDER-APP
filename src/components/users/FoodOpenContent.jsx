@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import Quantity from "../../components/users/Quantity";
 import DoneIcon from "@mui/icons-material/Done";
 import axiosInstance from '../../instance/axiosInstance'
+import loadingVideo from "../../assets/Foods/loading.mp4";
 import { useNavigate, useParams } from "react-router-dom";
 
 function FoodOpenContent() {
 
   let [quantity , setQuantity] = useState(1)
+  const [loading, setLoading] = useState(true);
 
   const Navigate = useNavigate()
 
@@ -17,7 +19,6 @@ function FoodOpenContent() {
   const [food , setFood] = useState({})
 
   useEffect(() => {
-
   const foodOpen = async() => {
     try {
 
@@ -27,7 +28,7 @@ function FoodOpenContent() {
       //Setting the food to the state if response ok
       if(status == 200){
         setFood(data.food)
-      }
+        setLoading(false)      }
     } catch (error) {
       if(error.response){
 
@@ -49,6 +50,20 @@ function FoodOpenContent() {
   const handleCheckout = (foodId) => {
     
      Navigate(`/checkout?food=${foodId}&quantity=${quantity}`)
+  }
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem] mb-28"
+        ></video>
+      </div>
+    );
   }
 
   return (
