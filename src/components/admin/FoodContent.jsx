@@ -6,6 +6,7 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import AddIcon from '@mui/icons-material/Add';
 import BlockIcon from '@mui/icons-material/Block';
 import EditIcon from '@mui/icons-material/Edit';
+import loadingVideo from "../../assets/Foods/loading.mp4";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -14,9 +15,11 @@ function AdminFoodContent() {
   const Navigate = useNavigate()
 
   const [data , setData] = useState([])
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
 
+    setLoading(true)
     const fetchFoods = async() => {
       try {
         const response = await axiodInstance.get('/admin/all-foods')
@@ -24,6 +27,7 @@ function AdminFoodContent() {
 
         if(status == 200) {
           setData(data.foods)
+          setLoading(false)
         }
       } catch (error) {
         if(error.response){
@@ -83,6 +87,20 @@ function AdminFoodContent() {
       }
     }
 
+  }
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem]"
+        ></video>
+      </div>
+    );
   }
 
   return (

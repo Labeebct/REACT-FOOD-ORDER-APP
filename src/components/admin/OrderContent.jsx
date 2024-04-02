@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axionsInstance from "../../instance/axiosInstance";
 import { confirmAlert } from "react-confirm-alert";
+import loadingVideo from "../../assets/Foods/loading.mp4";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { Alert } from "@mui/material";
 
 function OrderContent() {
   const [orders, setOrders] = useState([]);
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
+    setLoading(true)
     const fetchOrders = async () => {
       try {
         const response = await axionsInstance.get("/admin/orders");
@@ -16,6 +20,7 @@ function OrderContent() {
 
         if (status == 200) {
           setOrders(data.orders);
+          setLoading(false)
         }
       } catch (error) {
         if (error.response) {
@@ -88,6 +93,20 @@ function OrderContent() {
   };
 
   if (success) setTimeout(() => setSuccess(false), 1400);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem]"
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full w-full p-4 flex flex-col items-center overflow-y-scroll">

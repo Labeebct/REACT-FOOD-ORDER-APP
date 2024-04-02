@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import { Formik } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
 import axionInstance from "../../instance/axiosInstance";
+import loadingVideo from "../../assets/Foods/loading.mp4";
 
 function AddFoodContent() {
 
   const { foodId } = useParams()
-
+  
   const Navigate = useNavigate()
   const [message, setMessage] = useState("");
   const [food , setFood] = useState('')
   const [success , setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   if(foodId){
     
     useEffect(() => {
 
+      setLoading(true)
       //if it is edit food fetching edited food to add into input value
       const fetchEditfood = async() => {
         try {
@@ -24,6 +27,7 @@ function AddFoodContent() {
           const {data , status} = response
 
           if(status == 200) {
+            setLoading(false)
             setFood(data.food)
           }
           
@@ -31,7 +35,6 @@ function AddFoodContent() {
            if(error.response) {
 
             const {status} = error.response
-
             if(status == 404) {
               console.log('Food not found');
             }
@@ -50,7 +53,6 @@ function AddFoodContent() {
   }
 
   const axiosUrl = foodId ? `/admin/edit-food/${foodId}` : `/admin/add-food`
-
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -111,6 +113,21 @@ function AddFoodContent() {
   };
 
   if(message) setTimeout(() => setMessage('') , 2000);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem]"
+        ></video>
+      </div>
+    );
+  }
+
   return (
     <div className="h-full w-full p-4 flex flex-col items-center overflow-y-scroll">
       <div className="w-full h-auto bg-[#ffffff23] flex justify-between px-3 items-center rounded-md py-4 mb-4 sticky top-0 left-0 right-0">
