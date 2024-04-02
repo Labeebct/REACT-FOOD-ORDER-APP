@@ -109,7 +109,7 @@ function LoginContent() {
 
   //Removing error from error field after 2s
   if (message) setTimeout(() => setMessage(""), 2000);
-  if (loading) setTimeout(() => setLoading(false), 1000);
+  if (loading) setTimeout(() => setLoading(false), 1500);
 
   if (loading) {
     return (
@@ -174,7 +174,7 @@ function LoginContent() {
               to="/forget-password"
               className="text-[.78rem] text-blue-800 text-end mt-1 mr-1 font-roboto"
             >
-              Forget Password
+              Forget Password ?
             </Link>
           </div>
           <p className="text-[.8rem] text-[gray] font-poppins mt-2">

@@ -99,7 +99,7 @@ function SignupContent() {
 
 //Settimeout to remove the error
 if (submitError) setTimeout(() => setSubmitError('') , 1000);
-if (loading) setTimeout(() => setLoading(false), 1000);
+if (loading) setTimeout(() => setLoading(false), 1500);
 
 if (loading) {
   return (
