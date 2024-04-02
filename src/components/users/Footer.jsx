@@ -12,7 +12,7 @@ function Footer() {
       </h3>
       <section className="text-[.84rem] flex items-center gap-2">
         <PhoneIcon sx={{ fontSize: 16 }} />
-        <p>+91 8590471530</p>
+        <p>+91 8590471530</p> 
       </section>
       <section className="text-[.84rem] flex items-center gap-2">
         <MailOutlineIcon sx={{ fontSize: 16 }} />
