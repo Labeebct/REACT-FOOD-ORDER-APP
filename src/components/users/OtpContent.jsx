@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { useParams,useNavigate } from "react-router-dom";
 import  AxiosInstance  from "../../instance/axiosInstance";
 import loginLeftImg from "../../assets/Foods/pc1.jpg";
+import loadingVideo from "../../assets/Foods/loading.mp4";
+
 
 function OtpContent() {
 
@@ -14,6 +16,7 @@ function OtpContent() {
   // const [otpValue , setOtpValue] = useState()
   const [message , setMessage ] = useState('')
   const [verified , setVerified ] = useState(false)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Focus the first input when component mounts
@@ -122,6 +125,21 @@ function OtpContent() {
   }
 
   if(message) setTimeout(() => setMessage(''), 1000);
+  if (loading) setTimeout(() => setLoading(false), 1000);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem] mb-28"
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">

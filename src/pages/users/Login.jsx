@@ -35,7 +35,6 @@ function Login() {
       <>
       <LoginTopbar />
       <LoginContent />
-      <Footer />
       </>
      }
     </>

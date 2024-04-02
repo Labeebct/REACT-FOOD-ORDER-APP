@@ -8,7 +8,6 @@ function ConfirmOtp() {
     <>
       <LoginTopbar />
       <OtpContent />
-      <Footer />
     </>
   );
 }

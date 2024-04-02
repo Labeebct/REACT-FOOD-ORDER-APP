@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import loginLeftImg from "../../assets/Foods/pc1.jpg";
 import axiosInstance from '../../instance/axiosInstance'
 import { useNavigate } from "react-router-dom";
+import loadingVideo from "../../assets/Foods/loading.mp4";
 
 function ForgetPassContent() {
 
@@ -15,6 +16,8 @@ function ForgetPassContent() {
   const [emaillLabel , setEmailLabel] = useState('')
   const [message , setMessage] = useState('')
   const [success , setSuccess] = useState(false)
+  const [loading, setLoading] = useState(true);
+
 
   //Validating email format
   const handleChange = (e) => {
@@ -62,6 +65,21 @@ function ForgetPassContent() {
    }
 
   if(message) setTimeout(() => setMessage('') , 2000);
+  if (loading) setTimeout(() => setLoading(false), 1000);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem] mb-28"
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">

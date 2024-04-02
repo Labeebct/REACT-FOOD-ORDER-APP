@@ -9,7 +9,6 @@ function PasswordReset() {
     <>
       <LoginTopbar />
       <PasswordResetContent />
-      <Footer />
     </>
   );
 }

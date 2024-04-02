@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AxiosInstance from "../../instance/axiosInstance";
 import loginLeftImg from "../../assets/Foods/pc1.jpg";
+import loadingVideo from "../../assets/Foods/loading.mp4";
 
 function LoginContent() {
   const Navigate = useNavigate();
@@ -18,6 +19,9 @@ function LoginContent() {
 
   const [message, setMessage] = useState("");
   const [loginSuccess, setLoginSuccess] = useState("");
+
+  const [loading, setLoading] = useState(true);
+
 
   const handleChange = (e) => {
     //Destructuring datas from evemt
@@ -105,16 +109,31 @@ function LoginContent() {
 
   //Removing error from error field after 2s
   if (message) setTimeout(() => setMessage(""), 2000);
+  if (loading) setTimeout(() => setLoading(false), 1000);
+
+  if (loading) {
+    return (
+      <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+        <video
+          src={loadingVideo}
+          autoPlay
+          loop
+          muted
+          className="w-[15rem] h-[15rem] mb-28"
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">
-      <section className="w-[30%] mb-2 xl:w-[66%] min-w-[290px] h-[34rem] bg-white overflow-hidden rounded-[.6rem] flex justify-center">
+      <section className="w-[33%] mb-2 xl:w-[66%] min-w-[290px] h-[32rem] md:[33rem] xl:h-[34rem]  bg-white overflow-hidden rounded-[.6rem] flex justify-center">
         <div className="hidden xl:flex w-1/2 h-full ">
           <img src={loginLeftImg} alt="foodimage" className="h-full w-full" />
         </div>
         <form
           onSubmit={handleSubmit}
-          className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center px-[2rem] py-9 gap-4 flex-1"
+          className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center xl:px-[4.5rem] px-[2rem] py-9 gap-4 flex-1"
         >
           <h4 className="text-[2.2rem] mt-2 font-playfair">Login</h4>
           <div className="w-full h-auto flex flex-col mt-9 gap-2">

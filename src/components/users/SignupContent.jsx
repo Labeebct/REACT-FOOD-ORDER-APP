@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import loginLeftImg from "../../assets/Foods/pc8.jpg";
 import instance from '../../instance/axiosInstance'
+import loadingVideo from "../../assets/Foods/loading.mp4";
 
 function SignupContent() {
 
@@ -25,6 +26,9 @@ function SignupContent() {
   
   const [submitError, setSubmitError] = useState('')
   const [register , setRegister ] = useState(false)
+
+  const [loading, setLoading] = useState(true);
+
   
   //Validating user datas
   const handleChange = (e) =>{
@@ -95,14 +99,29 @@ function SignupContent() {
 
 //Settimeout to remove the error
 if (submitError) setTimeout(() => setSubmitError('') , 1000);
+if (loading) setTimeout(() => setLoading(false), 1000);
+
+if (loading) {
+  return (
+    <div className="w-full h-[calc(100vh-4.5rem)]  inset-0 flex z-30 justify-center items-center">
+      <video
+        src={loadingVideo}
+        autoPlay
+        loop
+        muted
+        className="w-[15rem] h-[15rem] mb-28"
+      ></video>
+    </div>
+  );
+}
 
 return (
   <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">
-      <section className="w-[30%] mb-2 xl:w-[66%] min-w-[290px] h-[34rem] bg-white overflow-hidden rounded-[.6rem] flex justify-center">
+      <section className="w-[33%] mb-2 xl:w-[66%] min-w-[290px] h-[32rem] md:[33rem] xl:h-[34rem]  bg-white overflow-hidden rounded-[.6rem] flex justify-center">
         <div className="hidden xl:flex w-1/2 h-full ">
           <img src={loginLeftImg} alt="foodimage" className="h-full w-full" />
         </div>
-        <form className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center px-[2rem] py-9 gap-5 flex-1">
+        <form className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center xl:px-[4.5rem] px-[2rem] py-9 gap-5 flex-1">
           <h4 className="text-[2.2rem] mt-1 font-playfair">Signup</h4>
           <div className="w-full h-auto flex flex-col  gap-1">
             <label
