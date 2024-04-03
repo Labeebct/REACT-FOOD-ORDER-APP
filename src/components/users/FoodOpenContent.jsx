@@ -67,16 +67,16 @@ function FoodOpenContent() {
   }
 
   return (
-    <main className="w-full h-auto flex items-center justify-center py-8">
-      <div className="flex h-auto w-[70%] border border-gray-100 border-opacity-20 shadow-md rounded-xl flex-wrap">
-        <div className="flex items-center min-w-[350px] justify-center w-1/2  flex-1 border-r border-gray-100 border-opacity-20  h-[35rem]">
+    <main  className="w-full h-auto flex items-center justify-center py-8">
+      <div className="flex min-w-[330px] h-auto w-[70%] border border-gray-100 border-opacity-20 shadow-md rounded-xl flex-wrap">
+        <div className="flex items-center justify-center w-[50%] flex-1 min-w-[264px] border-gray-100 border-opacity-20  h-[35rem]">
           <img
             src={'https://food.labio.shop/' + food.foodImg}
             className="h-[13rem] w-[15rem] sm:h-[22rem] sm:w-[22rem]"
             alt="view food image"
           />
         </div>
-        <div className="flex flex-1 flex-col min-w-[450px] p-10 gap-8  w-1/2  h-[35rem]">
+        <div className="flex flex-1 flex-col p-10 gap-8  w-[50%] h-[35rem]">
           <h4 className="text-[1.4rem] font-poppins font-[500]">
            {food.foodname}
           </h4>

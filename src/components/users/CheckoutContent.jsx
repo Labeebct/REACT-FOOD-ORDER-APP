@@ -109,7 +109,7 @@ function CheckoutContent({food,currentQty}) {
     <main className="w-full h-[calc(100vh-4.5rem)] p-4 overflow-y-auto">
       <Checkoutframe quantity={quantity} setQuantity={setQuantity} food={food} />
       <form onSubmit={handleSubmit} className="w-full flex h-[calc(100%-12rem_)] border flex-wrap border-slate-200 border-opacity-20">
-        <div className="h-full w-[900px] min-w-[407px]  border-r p-2  flex-grow border-slate-200 border-opacity-20">
+        <div className="h-full   border-r p-2  flex-grow border-slate-200 border-opacity-20">
           <CheckoutAddressArea setMessage={setMessage} />
         </div>
         <div className="w-[16rem] p-10 flex-grow justify-center items-center">

@@ -9,10 +9,10 @@ function HomeEntry() {
 
   return (
     <div className="flex w-full h-[calc(100vh-4.5rem)] flex-wrap">
-      <div className="flex items-center justify-center w-[50%] min-w-[439px] h-full flex-1">
+      <div className="flex items-center justify-center w-[50%] h-full flex-1">
         <img
           src={mainFoodImage}
-          className="h-[21em] w-[34em] md:h-[28em] md:w-[44rem]"
+          className="h-[19em] w-[35em] md:h-[28em] md:w-[44rem]"
           alt="mainfood image"
         />
       </div>

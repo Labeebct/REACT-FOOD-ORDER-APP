@@ -12,7 +12,7 @@ function OrderContent({orders}) {
   }
 
   return (
-    <main className="w-full h-[calc(100vh-4.5rem)] p-2 overflow-y-auto">
+    <main className="w-full no-scrollbar h-[calc(100vh-4.5rem)] p-2 overflow-y-auto">
       <OrderFrame orders={orders} />
     </main>
   );

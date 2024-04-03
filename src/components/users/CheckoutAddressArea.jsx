@@ -93,7 +93,7 @@ function CheckoutAddressArea() {
       </div>
 
       <div className="flex mt-5 justify-between">
-        <span className="flex w-[41.5%] flex-col gap-2">
+        <span className="flex w-[33.5%] flex-col gap-2">
           <label htmlFor="" className="text-[.75rem] font-poppins font-[200]">
             City
           </label>
@@ -115,7 +115,7 @@ function CheckoutAddressArea() {
             name="landmark"
           />
         </span>
-        <span className="flex w-[21%] flex-col gap-2">
+        <span className="flex w-[26%] flex-col gap-2">
           <label htmlFor="" className="text-[.75rem] font-poppins font-[200]">
             House No
           </label>

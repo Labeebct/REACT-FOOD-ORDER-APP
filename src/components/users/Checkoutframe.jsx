@@ -16,7 +16,7 @@ function Checkoutframe({food,quantity,setQuantity}) {
           alt="food image"
         />
       </div>
-      <div className="flex flex-wrap flex-col justify-evenly h-full w-[calc(100%-11rem-10rem)] px-5">
+      <div className="flex flex-wrap flex-col justify-evenly h-full w-[calc(100%-11rem-10rem)] px-10">
         <h4 className="text-[.8rem] md:text-[1.1rem] font-poppins font-[500]">
           {food.foodname}
         </h4>

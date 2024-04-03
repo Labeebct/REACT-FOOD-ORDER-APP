@@ -6,7 +6,7 @@ import cheffThree from "../../assets/Foods/ch_3.jpg";
 function CheffCard() {
   return (
     <div className="w-full h-auto mt-24 flex items-center justify-around flex-wrap">
-      <div className="h-[34rem] rounded-2xl w-[15%] min-w-[270px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
+      <div className="h-[34rem] rounded-2xl  w-[25%] min-w-[295px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
         <div className="w-full h-[85%] flex items-center justify-center">
           <img src={cheffTwo} className="h-[24rem] w-[18rem]" alt="men cheff" />
         </div>
@@ -16,7 +16,7 @@ function CheffCard() {
           </h4>
         </div>
       </div>
-      <div className="h-[34rem] rounded-2xl w-[15%] min-w-[270px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
+      <div className="h-[34rem] rounded-2xl w-[25%] min-w-[295px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
         <div className="w-full h-[85%] flex items-center justify-center">
           <img src={cheffOne} className="h-[24rem] w-[18rem]" alt="men cheff" />
         </div>
@@ -26,7 +26,7 @@ function CheffCard() {
           </h4>
         </div>
       </div>
-      <div className="h-[34rem] rounded-2xl w-[15%] min-w-[270px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
+      <div className="h-[34rem] rounded-2xl  w-[25%] min-w-[295px] mt-6 border border-white border-opacity-20 hover:scale-[1.02] ease-linear duration-75">
         <div className="w-full h-[85%] flex items-center justify-center">
           <img
             src={cheffThree}

@@ -13,7 +13,7 @@ function FoodFrame({foods}) {
   return (
     <>
     { foods.map((food,index) => 
-    <div key={index} onClick={() => Navigate(`/view-food/${food._id}`) } className="flex mt-5 cursor-pointer flex-col h-[28rem] min-w-[250px] border border-white border-opacity-20 flex-1 max-w-[300px]">
+    <div key={index} onClick={() => Navigate(`/view-food/${food._id}`) } className="flex mt-5 rounded-lg cursor-pointer flex-col h-[28rem] min-w-[250px] border border-white border-opacity-20 flex-1 max-w-[300px]">
       <div className="flex items-center justify-center w-full h-[55%] border-b border-slate-50 border-opacity-20">
         <img src={'https://food.labio.shop/' + food.foodImg} className="h-44 w-44" alt="food for order" />
       </div>

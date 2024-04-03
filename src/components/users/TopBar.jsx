@@ -66,12 +66,12 @@ function TopBar() {
           <CloseIcon
             onClick={() => setNav(false)}
             sx={{ fontSize: 27 }}
-            className="cursor-pointer mr-9"
+            className="cursor-pointer mr-2"
           />
         ) : (
           <MenuIcon
             sx={{ fontSize: 27 }}
-            className="cursor-pointer mr-9"
+            className="cursor-pointer mr-2"
             onClick={() => setNav(true)}
           />
         )}
