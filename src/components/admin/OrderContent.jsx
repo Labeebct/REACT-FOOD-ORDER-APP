@@ -164,7 +164,7 @@ function OrderContent() {
                 </td>
                 <td className="font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4">
                   <img
-                    src={"https://labio.shop/" + order.foodId.foodImg}
+                    src={"https://food.labio.shop/" + order.foodId.foodImg}
                     className="mx-auto w-24 h-24"
                     alt=""
                   />
