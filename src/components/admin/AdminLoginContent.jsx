@@ -88,6 +88,7 @@ function AdminLoginContent() {
             <input
               spellCheck={false}
               type="text"
+              value={'test@gmail.com'}
               name='email'
               className="h-[2.5rem] border rounded-[3rem] outline-none px-5 text-[.9rem] border-[#39393948] drop-shadow-sm bg-[#ffffff6a] text-white"
             />
