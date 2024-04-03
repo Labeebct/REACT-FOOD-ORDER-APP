@@ -47,10 +47,10 @@ function TopBar() {
 
   return (
     <nav className="flex z-10 sticky top-0 right-0 left-0 text-white justify-between px-7 items-center w-full h-[4.5rem] bg-black border-b border-gray-100 border-opacity-10">
-      <div className="text-[1.26rem] sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro">
+      <div className="text-[1.18rem] sm:text-[1.3rem] md:text-[1.4rem] text-[#FF7A00] font-cagliostro">
         LABIOO
       </div>
-      <div className="ml-0 md:ml-[8rem] bg-white flex overflow-hidden rounded-2xl h-7 md:max-w-[14rem] max-w-[9rem] ">
+      <div className="md:ml-[8rem] bg-white flex overflow-hidden rounded-2xl h-7 md:max-w-[14rem] max-w-[8rem] ">
         <input
           type="text"
           placeholder="Search"
@@ -66,12 +66,12 @@ function TopBar() {
           <CloseIcon
             onClick={() => setNav(false)}
             sx={{ fontSize: 27 }}
-            className="cursor-pointer"
+            className="cursor-pointer mr-9"
           />
         ) : (
           <MenuIcon
             sx={{ fontSize: 27 }}
-            className="cursor-pointer"
+            className="cursor-pointer mr-9"
             onClick={() => setNav(true)}
           />
         )}
@@ -121,20 +121,20 @@ function TopBar() {
           nav ? "left-0" : "left-[-17.5rem]"
         }  md:hidden absolute bottom-0 top-0 ease-linear duration-300`}
       >
-        <Link to="/home">
-          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
+        <Link to="/">
+          <li onClick={()=> setNav(false)} className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
             <HomeIcon />
             Home
           </li>
         </Link>
         <Link to="/foods">
-          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
+          <li onClick={()=> setNav(false)} className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
             <LunchDiningIcon />
             Foods
           </li>
         </Link>
         <Link to="/orders">
-          <li className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
+          <li onClick={()=> setNav(false)} className="px-5 py-6 flex gap-2 items-center border-b hover:bg-[#0e0e0e] border-slate-200 border-opacity-10 cursor-pointer">
             <LocalShippingIcon />
             Orders
           </li>

@@ -129,7 +129,7 @@ function AdminFoodContent() {
 
            <tr className='cursor-pointer' key={foods._id}>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4 '>{foods._id}</td>
-            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'><img src={'http://51.20.83.91/'+ foods.foodImg} className='mx-auto w-24 h-17' alt="" /></td>
+            <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'><img src={'https://labio.shop/'+ foods.foodImg} className='mx-auto w-24 h-17' alt="" /></td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>{foods.foodname}</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>${foods.foodprice}</td>
             <td className='font-[300] border border-slate-200 border-opacity-20 text-center font-roboto text-[.95rem] py-4'>{foods.fooddelivery} hours</td>

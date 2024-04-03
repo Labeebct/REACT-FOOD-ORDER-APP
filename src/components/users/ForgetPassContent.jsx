@@ -82,16 +82,16 @@ function ForgetPassContent() {
   }
 
   return (
-    <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">
+    <main className="w-full pt-24 h-[calc(100vh-4.5rem)] flex items-center justify-center">
       <section className="w-[33%] mb-2 xl:w-[58%] min-w-[290px] h-[32rem] md:[33rem] xl:h-[34rem]  bg-white overflow-hidden rounded-[.6rem] flex justify-center">
         <div className="hidden xl:flex w-1/2 h-full ">
           <img src={loginLeftImg} alt="foodimage" className="h-full w-full" />
         </div>
-        <form className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center px-[4.6rem] py-9 gap-4 flex-1">
+        <form className="w-1/2 text-black min-w-[310px] h-full flex  flex-col items-center px-[2rem] py-9 gap-4 flex-1">
           <h4 className="text-[1.8rem] md:text-[2rem] mt-2 font-playfair">
             Forget Password
           </h4>
-          <div className="w-full h-auto flex flex-col mt-9 gap-2">
+          <div className="w-full h-auto flex flex-col mt-6 gap-2">
             <p className="text-center text-[.9rem] font-poppins mt-8 mb-3">
               Enter your registered email to reset your password
             </p>

@@ -76,7 +76,7 @@ function PasswordResetContent() {
   if(message) setTimeout(() => setMessage(''), 2000);
 
   return (
-    <main className="w-full h-[calc(100vh-4.5rem)] flex items-center justify-center">
+    <main className="w-full pt-24 h-[calc(100vh-4.5rem)] flex items-center justify-center">
       <section className="w-[33%] mb-2 xl:w-[58%] min-w-[290px] h-[32rem] md:[33rem] xl:h-[34rem]  bg-white overflow-hidden rounded-[.6rem] flex justify-center">
       <div className="hidden xl:flex w-1/2 h-full ">
         <img src={loginLeftImg} alt="foodimage" className="h-full w-full" />

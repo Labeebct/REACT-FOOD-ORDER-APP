@@ -1,7 +1,7 @@
   import axios from 'axios';
 
   const instance = axios.create({
-    baseURL: 'http://51.20.83.91/api',
+    baseURL: 'https://food.labio.shop/api',
     timeout: 5000, 
   });
 

@@ -11,7 +11,7 @@ function HomeAllNeed() {
       <div className="w-[50%] min-w-[430px] h-[30rem] flex items-center justify-center lg:border-r border-white border-opacity-20">
         <img
           src={CartoonCheff}
-          className="w-[27rem] h-[27rem]"
+          className="w-[20rem] h-[20rem] md:w-[27rem] md:h-[27rem]"
           alt="cartoon image of cheff holding pizza"
         />
       </div>

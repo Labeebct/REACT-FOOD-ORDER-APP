@@ -8,7 +8,6 @@ function ForgetPassword() {
     <>
       <LoginTopbar />
       <ForgetPassContent />
-      <Footer />
     </>
   );
 }
