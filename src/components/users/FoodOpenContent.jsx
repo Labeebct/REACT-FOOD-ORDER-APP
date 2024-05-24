@@ -71,7 +71,7 @@ function FoodOpenContent() {
       <div className="flex min-w-[330px] h-auto w-[70%] border border-gray-100 border-opacity-20 shadow-md rounded-xl flex-wrap">
         <div className="flex items-center justify-center w-[50%] flex-1 min-w-[264px] border-gray-100 border-opacity-20  h-[35rem]">
           <img
-            src={'https://food.labio.shop/' + food.foodImg}
+            src={'https://foodapi.labio.shop/' + food.foodImg}
             className="h-[13rem] w-[15rem] sm:h-[22rem] sm:w-[22rem]"
             alt="view food image"
           />

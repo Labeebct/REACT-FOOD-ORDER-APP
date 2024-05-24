@@ -151,7 +151,7 @@ function AddFoodContent() {
               className="flex flex-col rounded-md px-14 p-3 items-center w-[40%] h-[100%] min-w-[400px] border border-slate-200 border-opacity-20"
             >
               <div className="flex overflow-hidden rounded-lg items-center justify-center w-[9rem] h-[10rem] border border-slate-200 border-opacity-20 ">
-                <img src={ values.imageUrl ? values.imageUrl : food ? 'https://food.labio.shop/' + food.foodImg : ''} className="h-24 w-29" alt="" />
+                <img src={ values.imageUrl ? values.imageUrl : food ? 'https://foodapi.labio.shop/' + food.foodImg : ''} className="h-24 w-29" alt="" />
               </div>
               <div className="relative w-auto flex items-center overflow-hidden">
                 <div className="my-4 p-2 px-6 bg-orange-600 font-poppins font-medium text-[.8rem] rounded-[1rem]">
@@ -159,14 +159,7 @@ function AddFoodContent() {
                 </div>
                 <input className="absolute opacity-0"
                  type="file" encType="multipart/form-data"
-                 name="foodImg"
-
-                 onChange={(event) => {
-                  setFieldValue('foodImg',event.currentTarget.files[0])
-                  const file = event.currentTarget.files[0]
-                  const imageUrl = URL.createObjectURL(file)
-                  setFieldValue('imageUrl',imageUrl)
-                }}/>
+                 name="foodImg"/>
               </div>
               <div className="w-full mt-1 h-auto flex flex-col gap-5">
                 <input

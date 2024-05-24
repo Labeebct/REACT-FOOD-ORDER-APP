@@ -1,22 +1,21 @@
-  import axios from 'axios';
+import axios from 'axios';
 
-  const instance = axios.create({
-    baseURL: 'https://food.labio.shop/api',
-    timeout: 5000, 
-  });
+const instance = axios.create({
+  baseURL: 'https://foodapi.labio.shop',
+  timeout: 5000,
+});
 
-  instance.interceptors.request.use((config) => {
+instance.interceptors.request.use((config) => {
 
-    const token = localStorage.getItem('token')
-    if(token) {
-      config.headers['Authorization'] = `Bearer ${token}`
-    }
-    return config
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`
+  }
+  return config
 
-  },(error) => {
-    console.log(error);
-    return Promise.reject(error)
-  })
+}, (error) => {
+  console.log(error);
+  return Promise.reject(error)
+})
 
-  export default instance;    
-          
+export default instance;

@@ -11,7 +11,7 @@ function Checkoutframe({food,quantity,setQuantity}) {
     <div onClick={() => Navigate('/view-food/'+ food._id)} className="w-full h-[12rem] cursor-pointer  flex border border-slate-200 border-opacity-20">
       <div className="h-full w-[11rem] border-r border-slate-200 border-opacity-20 flex items-center justify-center">
         <img
-          src={'https://food.labio.shop/' + food.foodImg}
+          src={'https://foodapi.labio.shop/' + food.foodImg}
           className="h-24 w-24 md:w-28 md:h-28"
           alt="food image"
         />
