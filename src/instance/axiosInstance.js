@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://foodapi.labio.shop',
-  timeout: 5000,
+  baseURL: 'https://foodapi.labio.shop'
 });
 
 instance.interceptors.request.use((config) => {
